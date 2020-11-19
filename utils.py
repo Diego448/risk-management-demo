@@ -26,3 +26,17 @@ class Utils:
             self.contactos.append(new_data)
         else:
             raise TypeError
+
+    def get_registry(self, id):
+        for registry in self.data:
+            if registry['id'] == id:
+                return registry
+            else:
+                continue
+        return {}
+
+def get_total_risk(risks):
+    total_risk = 0
+    for risk in risks:
+        total_risk += int(risk['severity'])
+    return total_risk

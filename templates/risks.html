@@ -10,6 +10,7 @@
             {% for risk in risks %}
                 <li>{{risk['name']}}</li>
                 <input type="button" value="Add">
+                <a href="{{ url_for('risk_details', risk_id=risk.id) }}"><input type="button" value="Details"></a>
             {% endfor %}
         </ul>
     </body>

@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from utils import Utils
+from utils import Utils, get_total_risk
 
 app = Flask(__name__)
 risk_db = Utils('data/risks.json')
@@ -15,7 +15,8 @@ def login_page():
 
 @app.route('/dashboard')
 def dashboard_page():
-    return render_template('dashboard.html')
+    dashboard_db.load()
+    return render_template('dashboard.html', risk_score=get_total_risk(dashboard_db.data))
 
 @app.route('/dashboard/risks')
 def dashboard_risks():
@@ -29,4 +30,7 @@ def risks():
 
 @app.route('/risks/<risk_id>')
 def risk_details(risk_id):
-    return render_template('risk_details.html')
+    risk = risk_db.get_registry(risk_id)
+    print(risk_db.data)
+    print(risk)
+    return render_template('risk_details.html', risk=risk)
