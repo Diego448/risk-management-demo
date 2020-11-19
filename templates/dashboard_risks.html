@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>All risks</title>
+    </head>
+    <body>
+        <h1>Risks</h1>
+        <ul>
+            {% for risk in risks %}
+                <li>{{ risk['name'] }}</li>
+                <input type="button" value="Details">
+            {% endfor %}
+        </ul>
+    </body>
+</html>
