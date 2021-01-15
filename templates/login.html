@@ -2,15 +2,16 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
         <title>Login</title>
     </head>
     <body>
         <div>
-            <h1>Login</h1>
-            <form method="POST">
+            <h1 class="h1">Login</h1>
+            <form class="form">
                 <input type="text" placeholder="User" id="username" name="username">
                 <input type="password" placeholder="password" id="password" name="password">
-                <button type="submit">Login</button>
+                <a href="{{ url_for('dashboard_page') }}"><button type="button">Login</button></a>
             </form>
         </div>    
     </body>

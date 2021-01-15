@@ -2,19 +2,29 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
         <title>Dashboard</title>
     </head>
     <body>
-        <div>
-            <a href="{{ url_for('risks') }}">Add risks</a>
-        </div>
-        <div>
-            <a href="{{ url_for('dashboard_risks') }}">My risks</a>
-        </div>
-        <div>
-            <h3>Total risk score</h3>
-            <p><span>{{ risk_score }}</span></p>
-        </div>
-        <div></div>
+        <h1 class="h1">Dashboard</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-5 bg-warning m-2">
+                    <h3 class="h3">New risks</h3>
+                    <a href="{{ url_for('risks') }}">Add risks</a>
+                </div>
+                <div class="col-5 bg-danger m-2">
+                    <h3 class="h3">Current risks</h3>
+                    <a href="{{ url_for('dashboard_risks') }}">My risks</a>
+                </div>
+                <div class="col-5 bg-info m-2">
+                    <h3 class="h3">Total risk score</h3>
+                    <p><span>{{ risk_score }}</span></p>
+                </div>
+                <div class="col-5 bg-success m-2">
+                    <h3 class="h3">Other</h3>
+                </div>
+            </div>
+        </div> 
     </body>
 </html>

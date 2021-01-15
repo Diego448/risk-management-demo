@@ -2,15 +2,31 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
         <title>All risks</title>
     </head>
     <body>
-        <h1>Risks</h1>
-        <ul>
-            {% for risk in risks %}
-                <li>{{ risk['name'] }}</li>
-                <input type="button" value="Details">
-            {% endfor %}
-        </ul>
+        <div class="container">
+            <h1 class="h1">Risks</h1>
+            <div class="row">
+                <div class="col-8">
+                    <ul class="list-group">
+                        {% for risk in risks %}
+                            <li class="list-group-item">{{ risk['name'] }}</li>
+                            
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul class="list-group">
+                        {% for risk in risks %}
+                            <li class="list-group-item">Actions:
+                                <input type="button" value="Details" class="btn"> 
+                            </li>             
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
