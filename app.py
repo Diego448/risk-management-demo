@@ -35,5 +35,9 @@ def risk_details(risk_id):
     print(risk)
     return render_template('risk_details.html', risk=risk)
 
+@app.route('/test')
+def test():
+    return "Hello from Docker environment"
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
