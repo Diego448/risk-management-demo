@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from utils import Utils, get_total_risk
+from db_utils import save_data
 
 app = Flask(__name__)
 risk_db = Utils('data/risks.json')
@@ -38,6 +39,13 @@ def risk_details(risk_id):
 @app.route('/test')
 def test():
     return "Hello from Docker environment"
+
+@app.route('/test/db/<message>')
+def db_test(message):
+    data = {'message': message}
+    result = save_data(data)
+    return str(result)
+    
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
