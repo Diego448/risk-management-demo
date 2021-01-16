@@ -1,0 +1,16 @@
+version: "3.8"
+services: 
+  app: 
+    image: python:3.8-buster
+    command: sh -c "python3 -m pip install -r requirements.txt && export FLASK_APP=app.py && export FLASK_ENV=development && python -m flask run --host 0.0.0.0"
+    ports:
+      - 5000:5000
+    working_dir: /risk-management-demo
+    volumes: 
+      - ./:/risk-management-demo
+  mongo-test:
+    image: mongo:3.6-xenial
+    volumes: 
+      - test-mongo-data:/var/lib/mongodb
+volumes: 
+  test-mongo-data:
