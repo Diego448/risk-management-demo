@@ -1,0 +1,7 @@
+__pycache__
+docker_scripts
+include
+lib
+lib64
+share
+pyvenv.cfg
